@@ -4,21 +4,6 @@ namespace App;
 
 
 use Illuminate\Database\Eloquent\Model;
-<<<<<<< HEAD
-use App\Field;
-
-class Match extends Model
-{
-    
-
-// RELACIONES (nelson) ----------------------------------------
-    
-    public function field() {
-        return $this->belongsTohasMany(Field::class);
-    }
-//--------------------------------------------------------------
-
-=======
 use App\Team;
 use App\Field;
 use App\User;
@@ -26,7 +11,6 @@ use App\User;
 class Match extends Model
 {
     // RELATIONS
->>>>>>> asd
     public function team()
     {
         $this->hasMany(Team::class);
@@ -34,7 +18,7 @@ class Match extends Model
 
     public function field()
     {
-        $this->hasOne(Field::class);
+        return $this->belongsTo(Field::class);
     }
 
     // -----------------------
@@ -48,28 +32,23 @@ class Match extends Model
         $team = Team::find($this->team2_id);
         return $team;
     }
-<<<<<<< HEAD
-    // public function field()
-    // {
-    //     $field = Field::find($this->field_id);
-    //     return $field;
-    // }
-=======
 
-    /* public function field()
+    public function score1()
     {
-        $field = Field::find($this->field_id);
-        return $field;
-    } */
->>>>>>> asd
-   
+        return $this->belongsTo(Score::class);
+    }
+    public function score2()
+    {
+        return $this->belongsTo(Score::class);
+    }
+
     // GUESTS -------------------------------
         public function guest1()
         {
             $guest1 = User::find($this->guest1_id);
             return $guest1;
         }
-        
+
         public function guest2()
         {
             $guest2 = User::find($this->guest2_id);

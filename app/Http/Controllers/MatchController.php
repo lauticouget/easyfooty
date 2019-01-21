@@ -4,6 +4,9 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Match;
+use App\Field;
+use Illuminate\Support\Carbon;
+use Carbon\CarbonPeriod;
 
 class MatchController extends Controller
 {
@@ -15,6 +18,7 @@ class MatchController extends Controller
     public function index()
     {
         $matches = Match::paginate(10);
+
         return view('match.index', compact('matches'));
     }
 
@@ -25,7 +29,30 @@ class MatchController extends Controller
      */
     public function create()
     {
-        //
+        $fields = Field::All();
+
+        // DATES
+        $today = Carbon::now();
+
+        $lastDate = Carbon::now()->addMonth();
+        $numberOfDays = $today->diffInDays($lastDate);
+        $dates = [];
+
+
+        for($i = 0; $i < $numberOfDays; $i++ ) {
+            $dates[] = $today->addDay()->format('Y-m-d');
+        };
+
+        // HOURS
+        $hourCero = $today->startOfDay();
+        $hours = [];
+
+        for($i = 0 ; $i<24 ; $i++ ){
+            $hours[] = Carbon::now()->startOfDay()->addHours($i)->format('H');
+        }
+
+        dd($dates);
+        return view('match.create', compact('fields', 'dates'));
     }
 
     /**

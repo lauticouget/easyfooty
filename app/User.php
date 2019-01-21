@@ -36,14 +36,13 @@ class User extends Authenticatable
     protected $hidden = [
         'password', 'remember_token',
     ];
-<<<<<<< HEAD
 
     
 
 // RELACIONES (nelson)---------------------------------------------------------
     public function fields() {
         return $this->hasMany(Field::class);
-=======
+    }
     public function team()
     {
         return $this->belongsToMany(Team::class);
@@ -113,7 +112,6 @@ class User extends Authenticatable
     public function hasRole($role)
     {
         return null !== $this->roles()->where('name', $role)->first();
->>>>>>> asd
     }
 // ----------------------------------------------------------------------------
 
