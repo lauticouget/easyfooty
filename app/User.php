@@ -7,6 +7,7 @@ use Illuminate\Notifications\Notifiable;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use App\Field;
+use App\Match;
 
 class User extends Authenticatable
 {
@@ -43,9 +44,15 @@ class User extends Authenticatable
     public function fields() {
         return $this->hasMany(Field::class);
     }
+
+    public function matches()
+    {
+        return $this->belongsToMany(Match::class);
+    }
+
     public function teams()
     {
-        return $this->hasMany(Team::class);
+        return $this->belongsToMany(Team::class);
     }
     public function attitude()
     {
