@@ -37,15 +37,15 @@ class User extends Authenticatable
         'password', 'remember_token',
     ];
 
-    
+
 
 // RELACIONES (nelson)---------------------------------------------------------
     public function fields() {
         return $this->hasMany(Field::class);
     }
-    public function team()
+    public function teams()
     {
-        return $this->belongsToMany(Team::class);
+        return $this->hasMany(Team::class);
     }
     public function attitude()
     {
@@ -91,10 +91,10 @@ class User extends Authenticatable
     public function authorizeRoles($roles)
     {
         if (is_array($roles)) {
-        return $this->hasAnyRole($roles) || 
+        return $this->hasAnyRole($roles) ||
                 abort(401, 'This action is unauthorized.');
         }
-        return $this->hasRole($roles) || 
+        return $this->hasRole($roles) ||
             abort(401, 'This action is unauthorized.');
     }
     /**
@@ -167,10 +167,10 @@ class User extends Authenticatable
     // public function authorizeRoles($roles)
     // {
     //     if (is_array($roles)) {
-    //     return $this->hasAnyRole($roles) || 
+    //     return $this->hasAnyRole($roles) ||
     //             abort(401, 'This action is unauthorized.');
     //     }
-    //     return $this->hasRole($roles) || 
+    //     return $this->hasRole($roles) ||
     //         abort(401, 'This action is unauthorized.');
     // }
     // /**

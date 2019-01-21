@@ -7,6 +7,7 @@ use App\Match;
 use App\Field;
 use Illuminate\Support\Carbon;
 use Carbon\CarbonPeriod;
+use Illuminate\Support\Facades\Auth;
 
 class MatchController extends Controller
 {
@@ -30,6 +31,7 @@ class MatchController extends Controller
     public function create()
     {
         $fields = Field::All();
+        $teams = Auth::user()->teams;
 
         // DATES
         $today = Carbon::now();
@@ -51,8 +53,8 @@ class MatchController extends Controller
             $hours[] = Carbon::now()->startOfDay()->addHours($i)->format('H');
         }
 
-        dd($dates);
-        return view('match.create', compact('fields', 'dates'));
+
+        return view('match.create', compact('fields', 'dates', 'hours', 'teams'));
     }
 
     /**

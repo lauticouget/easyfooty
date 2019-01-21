@@ -22,15 +22,7 @@ class MatchesTable extends Migration
 
             $table->foreign('field_id')->references('id')->on('fields')->change();
 
-            $table->foreign('guest1_id')->references('id')->on('users');
-            $table->foreign('guest2_id')->references('id')->on('users');
-            $table->foreign('guest3_id')->references('id')->on('users');
-            $table->foreign('guest4_id')->references('id')->on('users');
-            $table->foreign('guest5_id')->references('id')->on('users');
-            $table->foreign('guest6_id')->references('id')->on('users');
-            $table->foreign('guest7_id')->references('id')->on('users');
-            $table->foreign('guest8_id')->references('id')->on('users');
-            $table->foreign('guest9_id')->references('id')->on('users');
+
 
 
         });
