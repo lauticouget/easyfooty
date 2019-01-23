@@ -7,11 +7,16 @@ use Illuminate\Database\Eloquent\Model;
 use App\Team;
 use App\Field;
 use App\User;
+use App\Score;
 
 class Match extends Model
 {
-    // RELATIONS
+    protected $guarded = [
 
+    ];
+
+
+    // RELATIONS
 
     public function field()
     {
@@ -29,6 +34,7 @@ class Match extends Model
         $team = Team::find($this->team2_id);
         return $team;
     }
+
 
     public function score1()
     {

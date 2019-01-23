@@ -31,7 +31,7 @@ Route::post('/canchas/{id}/editar', 'FieldController@update')->name('update-fiel
 Route::get('/match/index', 'MatchController@index')->name('match.index');
 Route::get('/match/show/{id}', 'MatchController@show')->name('match.show');
 Route::get('/match/create', 'MatchController@create')->name('match.create');
-Route::get('/match/store', 'MatchController@store')->name('match.store');
+Route::post('/match/store', 'MatchController@store')->name('match.store');
 
 // TEAMS
 Route::get('/team/index', 'TeamController@index')->name('team.index');
