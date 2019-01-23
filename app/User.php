@@ -7,6 +7,7 @@ use Illuminate\Notifications\Notifiable;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use App\Field;
+use App\Match;
 
 class User extends Authenticatable
 {
@@ -36,15 +37,20 @@ class User extends Authenticatable
     protected $hidden = [
         'password', 'remember_token',
     ];
-<<<<<<< HEAD
 
-    
+
 
 // RELACIONES (nelson)---------------------------------------------------------
     public function fields() {
         return $this->hasMany(Field::class);
-=======
-    public function team()
+    }
+
+    public function matches()
+    {
+        return $this->belongsToMany(Match::class);
+    }
+
+    public function teams()
     {
         return $this->belongsToMany(Team::class);
     }
@@ -92,10 +98,10 @@ class User extends Authenticatable
     public function authorizeRoles($roles)
     {
         if (is_array($roles)) {
-        return $this->hasAnyRole($roles) || 
+        return $this->hasAnyRole($roles) ||
                 abort(401, 'This action is unauthorized.');
         }
-        return $this->hasRole($roles) || 
+        return $this->hasRole($roles) ||
             abort(401, 'This action is unauthorized.');
     }
     /**
@@ -113,7 +119,6 @@ class User extends Authenticatable
     public function hasRole($role)
     {
         return null !== $this->roles()->where('name', $role)->first();
->>>>>>> asd
     }
 // ----------------------------------------------------------------------------
 
@@ -169,10 +174,10 @@ class User extends Authenticatable
     // public function authorizeRoles($roles)
     // {
     //     if (is_array($roles)) {
-    //     return $this->hasAnyRole($roles) || 
+    //     return $this->hasAnyRole($roles) ||
     //             abort(401, 'This action is unauthorized.');
     //     }
-    //     return $this->hasRole($roles) || 
+    //     return $this->hasRole($roles) ||
     //         abort(401, 'This action is unauthorized.');
     // }
     // /**

@@ -3,11 +3,14 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use App\Match;
+use App\User;
 
 class Team extends Model
 {
-    public function matches()
+
+    public function users()
     {
-        $this->belongsToMany(Match::class);
+        return $this->belongsToMany(User::class);
     }
 }

@@ -1,4 +1,5 @@
-@extends('layouts.app') 
+
+@extends('layouts.app')
 
 @section('content')
 
@@ -24,16 +25,14 @@
             </thead>
             @foreach ($matches as $match)
             <tbody>
-                @php
-                    dd($match->field())
-                @endphp
+
                 <tr>
                     <a href="{{ route('match.show', [$match->id]) }}"><th scope="row">{{ $match->id }}</th></a>
                     <a href="{{ route('team.show', [$match->team1()->id]) }}"><td>{{ $match->team1()->name }}</td></a>
                     <a href="{{ route('team.show', [$match->team2()->id]) }}"><td>{{ $match->team2()->name }}</td></a>
-                    
-                    <td>{{ $match->score1()->goals }}.{{ $match->score2()->goals }}</td>
-                    <td>{{ $match->field()->name }}</td>
+
+                    <td>{{ $match->score1->goals }}.{{ $match->score2->goals }}</td>
+                    <td>{{ $match->field->name }}</td>
                     <td>{{ $match->date }}</td>
                 </tr>
             </tbody>
