@@ -1,4 +1,4 @@
-<nav class="navbar navbar-expand-md navbar-light navbar-laravel">
+<nav class="navbar navbar-expand-md navbar-light navbar-laravel fixed-top">
     <div class="container">
         <a class="navbar-brand" href="{{ url('/') }}">
             {{ config('app.name', 'Laravel') }}
@@ -26,7 +26,7 @@
                         @endif
                     </li>
                 @else
-                
+
                     @if (Auth::user()->role()->name == 'player')
                     <li class="nav-item ">
                         <a  class="nav-link" href="{{ route('match.index') }}" role="button"  aria-haspopup="true" aria-expanded="false" v-pre>

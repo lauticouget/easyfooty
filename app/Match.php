@@ -26,13 +26,11 @@ class Match extends Model
     // -----------------------
     public function team1()
     {
-        $team = Team::find($this->team1_id);
-        return $team;
+        return $this->belongsTo(Team::class);
     }
     public function team2()
     {
-        $team = Team::find($this->team2_id);
-        return $team;
+        return $this->belongsTo(Team::class);
     }
 
 
