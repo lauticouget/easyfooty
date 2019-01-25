@@ -3,6 +3,12 @@
         <a class="navbar-brand" href="{{ url('/') }}">
             {{ config('app.name', 'Laravel') }}
         </a>
+
+        <a class="navbar-brand" href="{{ url('/home') }}">
+            <i class="fas fa-futbol"></i>
+            Home
+        </a>
+
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
             <span class="navbar-toggler-icon"></span>
         </button>
@@ -27,7 +33,7 @@
                     </li>
                 @else
 
-                    @if (Auth::user()->role()->name == 'player')
+                    @if (Auth::user()->role == 'player')
                     <li class="nav-item ">
                         <a  class="nav-link" href="{{ route('match.index') }}" role="button"  aria-haspopup="true" aria-expanded="false" v-pre>
                             Matches <span class="caret"></span>

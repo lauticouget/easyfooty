@@ -25,6 +25,6 @@ $factory->define(App\User::class, function (Faker $faker) {
         'strong_foot' => $faker->randomElement(['lefty', 'righty', 'ambidextrous']),
         'location' => $faker->randomElement(['CABA', 'Escobar', 'Pilar', 'General Rodriguez', 'Marcos Paz', 'Cañuelas', 'San Vicente', 'La Plata', 'Ensenada', 'Berisso', 'Berazategui', 'Florencio Varela', 'Almirante Brown', 'Esteban Echeverria', 'Ezeiza', 'La Matanza', 'Merlo', 'Moreno', 'Jose C. Paz', 'Malvinas Argentinas', 'Tigre', 'San Fernando', 'San Isidro', 'Vicente Lopez', 'General San Martin', 'San Miguel', 'Hurlingham', 'Tres de Febrero', 'Ituzaingo', 'Moron', 'Presidente Peron', 'Lomas De Zamora', 'Quilmes', 'Avellaneda']),
         'phone' => '11'.$faker->randomNumber($nbDigits = 8, $strict = false),
-        'role_id' => $faker->randomElement(['1', '2']),
+        'role' => $faker->randomElement(['owner', 'player']),
     ];
 });

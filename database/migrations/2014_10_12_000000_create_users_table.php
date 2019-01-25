@@ -20,15 +20,27 @@ class CreateUsersTable extends Migration
             $table->timestamps();
 
             $table->string('first_name');
+
             $table->string('last_name')->nullable();
+
             $table->string('email')->unique();
+
             $table->string('password');
+
             $table->unsignedSmallInteger('height')->nullable();
+
             $table->string('favorite_position')->nullable();
+
             $table->string('strong_foot')->nullable();
+
             $table->string('location')->nullable();
+
             $table->string('profile_img_path')->nullable();
+
             $table->bigInteger('phone')->unique()->signed()->nullable();
+
+            $table->string('role');
+
         });
     }
 

@@ -59,19 +59,9 @@ class User extends Authenticatable
         return $this->hasMany(Attitude::class);
     }
 
-    public function roles()
-    {
-        return $this->belongsToMany(Role::class)->withTimestamps();
-    }
     public function rated()
     {
         return $this->attitude()->rated;
-    }
-
-    public function role()
-    {
-        $role = Role::find($this->role_id);
-        return $role;
     }
 
     public function avgAtt()
