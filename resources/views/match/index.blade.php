@@ -13,32 +13,54 @@
         <h1 class="h1">Matches</h1>
         <hr>
         <table class="table">
+
             <thead>
+
               <tr>
-                <th scope="col">Id</th>
+
+                <th scope="col">Match</th>
+
                 <th scope="col">Team 1</th>
-                <th scope="col">Team 2</th>
+
                 <th scope="col">Score</th>
+
+                <th scope="col">Team 2</th>
+
                 <th scope="col">Field</th>
+
                 <th scope="col">Date</th>
+
               </tr>
+
             </thead>
+
             @foreach ($matches as $match)
+
             <tbody>
 
                 <tr>
-                    <a href="{{ route('match.show', [$match->id]) }}"><th scope="row">{{ $match->id }}</th></a>
-                    <a href="{{ route('team.show', [$match->team1()->id]) }}"><td>{{ $match->team1()->name }}</td></a>
-                    <a href="{{ route('team.show', [$match->team2()->id]) }}"><td>{{ $match->team2()->name }}</td></a>
+                    <td> <a href="{{ route('match.show', [$match->id]) }}"> Go  </a> </td>
 
-                    <td>{{ $match->score1->goals }}.{{ $match->score2->goals }}</td>
+                    <td><a href="{{ route('team.show', [$match->team1->id]) }}">  {{ $match->team1->name }} </a></td>
+
+                    <td>{{ $match->score1->goals }} - {{ $match->score2->goals }}</td>
+
+                    <td><a href="{{ route('team.show', [$match->team2->id]) }}">{{ $match->team2->name }}</a></td>
+
                     <td>{{ $match->field->name }}</td>
+
                     <td>{{ $match->date }}</td>
                 </tr>
+
             </tbody>
+
             @endforeach
+
           </table>
+
           {!! $matches->links() !!}
     </div>
+
 </div>
+
 @endsection

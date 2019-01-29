@@ -113,7 +113,10 @@ class MatchController extends Controller
     public function show($id)
     {
         $match = Match::find($id);
-        return view('match.show', compact('match'));
+        $team1 = $match->team1;
+        $team2 = $match->team2;
+
+        return view('match.show', compact('match', 'team1', 'team2'));
     }
 
     /**

@@ -19,6 +19,10 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
+// PLAYERS
+Route::get('/player/show/{id}', 'PlayerController@show')->name('player.show');
+Route::get('/player/teams/{id}', 'PlayerController@showTeams')->name('player.teams');
+Route::get('/player/edit/{id}', 'PlayerController@edit')->name('player.edit');
 
 // FIELDS
 Route::get('/canchas', 'FieldController@index')->name('index-field');
@@ -34,6 +38,9 @@ Route::get('/match/create', 'MatchController@create')->name('match.create');
 Route::post('/match/store', 'MatchController@store')->name('match.store');
 
 // TEAMS
-Route::get('/team/index', 'TeamController@index')->name('team.index');
+Route::get('/team/index/{id?}', 'TeamController@index')->name('team.index');
 Route::get('/team/show/{id}', 'TeamController@show')->name('team.show');
 Route::get('/team/create', 'TeamController@create')->name('team.create');
+Route::post('/team/store', 'TeamController@store')->name('team.store');
+Route::post('/team/add/player', 'TeamController@addPlayer')->name('team.add.player');
+Route::post('/team/remove/player', 'TeamController@removePlayer')->name('team.remove.player');

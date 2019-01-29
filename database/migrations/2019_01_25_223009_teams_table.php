@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class RoleUserTable extends Migration
+class TeamsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,9 +13,8 @@ class RoleUserTable extends Migration
      */
     public function up()
     {
-        Schema::table('role_user', function (Blueprint $table) {
-            $table->foreign('user_id')->references('id')->on('users');
-            $table->foreign('role_id')->references('id')->on('roles');            
+        Schema::table('teams', function (Blueprint $table) {
+            $table->foreign('captain_id')->references('id')->on('users');
         });
     }
 
