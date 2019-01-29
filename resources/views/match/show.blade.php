@@ -6,7 +6,6 @@
             <h1 class="display-4">Scheduled Match</h1>
             <p class="lead">This are your match settings</p>
             <hr class="my-2">
-            <p>More info</p>
             <div class="card-columns">
                 <div class="card">
                     <img class="card-img-top" src="holder.js/100x180/" alt="">

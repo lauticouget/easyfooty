@@ -4,12 +4,11 @@
 
 <div class="container">
     <div class="jumbotron">
-        <a class="btn btn-light" href="{{ route('team.create') }}"><h1 class="h1"> Create team! </h1></a>
-        <a class="btn btn-light" href="{{ route('player.teams', Auth::id()) }} "><h1 class="h1"> Your Teams </h1></a>
+        <a href="{{ route('team.create') }}"><h1 class="h1"> Create team! </h1></a>
     </div>
 
     <div class="jumbotron">
-        <h1 class="h1">Teams</h1>
+        <h1 class="h1">Your Teams</h1>
         <hr>
         <table class="table">
             <thead>

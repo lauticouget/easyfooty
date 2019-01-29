@@ -4,6 +4,9 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Team;
+use App\User;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Input;
 
 class TeamController extends Controller
 {
@@ -12,9 +15,10 @@ class TeamController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index( $id = null)
     {
-        $teams = Team::paginate(10);
+
+        $teams = Team::paginate(10) ;
         return view('team.index', compact('teams'));
     }
 
@@ -25,7 +29,10 @@ class TeamController extends Controller
      */
     public function create()
     {
-        //
+        $thisPlayer = Auth::user();
+        $players = User::all()->where('role', 'player');
+
+        return view('team.create', compact('players', 'thisPlayer'));
     }
 
     /**
@@ -36,7 +43,25 @@ class TeamController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $this->validate($request, [
+            'captain' => 'required',
+            'name' => 'required|max:50',
+        ]);
+
+        $players = [ $request->input('player1'), $request->input('player2'), $request->input('player3'), $request->input('player4') ];
+
+
+        $team = Team::create([
+            'name' => $request->input('name'),
+            'captain_id' => $request->input('captain'),
+
+        ]);
+
+        foreach($players as $player){
+            $team->users()->attach($player);
+        }
+
+        return redirect(route('team.show', $team->id));
     }
 
     /**
@@ -47,7 +72,9 @@ class TeamController extends Controller
      */
     public function show($id)
     {
-        //
+        $team = Team::find($id);
+        $users = User::All();
+        return view('team.show', compact('team', 'users'));
     }
 
     /**
@@ -83,4 +110,6 @@ class TeamController extends Controller
     {
         //
     }
+
+
 }
