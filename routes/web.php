@@ -23,6 +23,7 @@ Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/player/show/{id}', 'PlayerController@show')->name('player.show');
 Route::get('/player/teams/{id}', 'PlayerController@showTeams')->name('player.teams');
 Route::get('/player/edit/{id}', 'PlayerController@edit')->name('player.edit');
+Route::patch('/player/update/{player}', 'PlayerController@update')->name('player.update');
 
 // FIELDS
 Route::get('/canchas', 'FieldController@index')->name('index-field');
