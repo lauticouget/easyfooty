@@ -45,3 +45,8 @@ Route::get('/team/create', 'TeamController@create')->name('team.create');
 Route::post('/team/store', 'TeamController@store')->name('team.store');
 Route::post('/team/add/player', 'TeamController@addPlayer')->name('team.add.player');
 Route::post('/team/remove/player', 'TeamController@removePlayer')->name('team.remove.player');
+
+
+
+// TEST
+Route::view('vue', 'vue');

@@ -2,14 +2,14 @@
     <div class="container">
 
 {{-- LARAVEL HOMEButton --}}
-        <a class="navbar-brand" href="{{ url('/') }}">
+        {{-- <a class="navbar-brand" href="{{ url('/') }}">
             {{ config('app.name', 'Laravel') }}
-        </a>
+        </a> --}}
 
 {{-- HOME BUTTON --}}
         <a class="navbar-brand" href="{{ url('/home') }}">
             <i class="fas fa-futbol"></i>
-            Home
+            EasyFoot
         </a>
 
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
