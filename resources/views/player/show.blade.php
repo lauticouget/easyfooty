@@ -7,11 +7,12 @@
     <div class="row ">
 
         <div class="col-md-6 ">
+
             <figure class="text-center">
-                <a href="{{route('player.edit', $player->id)}}"> <img src="{{ asset(Auth::user()->profile_img_path ? : asset ( 'storage/default_profile_picture.jpg' ) )}}" class="figure-img img-fluid img-responsive img-thumbnail rounded-circle" alt="Responsive image"> </a>
+
+                <a href="{{route('player.edit', Auth::user()->id)}}"> <img src="{{  (Auth::user()->profileImgPath()) }}" class="figure-img img-fluid img-responsive img-thumbnail rounded-circle" alt="Responsive image"> </a>
 
                 <figcaption class="figure-caption"><i class="" aria-hidden="true"> Click your image to edit your profile</i> <i class="fa fa-info" aria-hidden="true"></i></figcaption>
-
 
             </figure>
 

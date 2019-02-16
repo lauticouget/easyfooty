@@ -39,7 +39,6 @@ class User extends Authenticatable
     ];
 
 
-
 // RELACIONES (nelson)---------------------------------------------------------
     public function fields() {
         return $this->hasMany(Field::class);
@@ -112,79 +111,14 @@ class User extends Authenticatable
     }
 // ----------------------------------------------------------------------------
 
+        // IMAGES
 
-
-
-
-
-
-
-
-
-
-
-
-    // public function team()
-    // {
-    //     return $this->belongsToMany(Team::class);
-    // }
-    // public function attitude()
-    // {
-    //     return $this->hasMany(Attitude::class);
-    // }
-    // public function roles()
-    // {
-    //     return $this->belongsToMany(Role::class)->withTimestamps();
-    // }
-    // public function rated()
-    // {
-    //     return $this->attitude()->rated;
-    // }
-    // public function avgAtt()
-    // {
-    //     $id = $this->id;
-    //     $avgAtt = DB::table('attitudes')
-    //     ->select(DB::raw('ROUND(avg(rated),1) as avgAtt'))
-    //     ->where('user_id', '=', $id)
-    //     ->first();
-    //     $avgAtt = $avgAtt->avgAtt;
-    //     return $avgAtt;
-    // }
-    // public function avgSkill()
-    // {
-    //     $id = $this->id;
-    //     $avgSkill = DB::table('Skills')
-    //     ->select(DB::raw('ROUND(avg(rated),1) as avgSkill'))
-    //     ->where('user_id', '=', $id)
-    //     ->first();
-    //     $avgSkill = $avgSkill->avgSkill;
-    //     return $avgSkill;
-    // }
-    //        //---------- ROLES-----------//
-    // public function authorizeRoles($roles)
-    // {
-    //     if (is_array($roles)) {
-    //     return $this->hasAnyRole($roles) ||
-    //             abort(401, 'This action is unauthorized.');
-    //     }
-    //     return $this->hasRole($roles) ||
-    //         abort(401, 'This action is unauthorized.');
-    // }
-    // /**
-    // * Check multiple roles
-    // * @param array $roles
-    // */
-    // public function hasAnyRole($roles)
-    // {
-    //     return null !== $this->roles()->whereIn('name', $roles)->first();
-    // }
-    // /**
-    // * Check one role
-    // * @param string $role
-    // */
-    // public function hasRole($role)
-    // {
-    //     return null !== $this->roles()->where('name', $role)->first();
-    // }
-
+    public function ProfileImgPath()
+    {
+        if ( isset ( $this->profile_img_path ) ) {
+            return ( '/storage' . '/' . $this->profile_img_path );
+        }else {
+            return ('/storage/profile_images/default_profile_picture.jpg');
+        }
+    }
 }

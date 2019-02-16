@@ -23,6 +23,7 @@ Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/player/show/{id}', 'PlayerController@show')->name('player.show');
 Route::get('/player/teams/{id}', 'PlayerController@showTeams')->name('player.teams');
 Route::get('/player/edit/{id}', 'PlayerController@edit')->name('player.edit');
+Route::patch('/player/update/{player}', 'PlayerController@update')->name('player.update');
 
 // FIELDS
 Route::get('/canchas', 'FieldController@index')->name('index-field');
@@ -44,3 +45,8 @@ Route::get('/team/create', 'TeamController@create')->name('team.create');
 Route::post('/team/store', 'TeamController@store')->name('team.store');
 Route::post('/team/add/player', 'TeamController@addPlayer')->name('team.add.player');
 Route::post('/team/remove/player', 'TeamController@removePlayer')->name('team.remove.player');
+
+
+
+// TEST
+Route::view('vue', 'vue');

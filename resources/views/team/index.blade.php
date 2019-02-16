@@ -11,8 +11,8 @@
     <div class="jumbotron">
         <h1 class="h1">Teams</h1>
         <hr>
-        <table class="table">
-            <thead>
+        <table class="table  table-striped">
+            <thead class="thead-dark ">
               <tr>
 
                 <th scope="col">Name</th>
@@ -28,9 +28,9 @@
 
                 <tr>
 
-                    <td><a href="{{ route('team.show', [$team->id]) }}">  {{ $team->name}} </a></td>
+                    <td><a  href="{{ route('team.show', [$team->id]) }}">  {{ $team->name}} </a></td>
 
-                    <td><a href="{{ route('player.show', [$team->captain->id]) }}">  {{ $team->captain->first_name}}  {{ $team->captain->last_name}} </a></td>
+                    <td><a  href="{{ route('player.show', [$team->captain->id]) }}">  {{ $team->captain->first_name}}  {{ $team->captain->last_name}} </a></td>
 
                 </tr>
 
