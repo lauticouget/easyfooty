@@ -17142,3 +17142,14 @@ readers do not read off random characters that represent icons */
     color: white;
     font-size: 3em !important;
 }
+.custom-navbar {
+    background-color: rgba(255, 255, 255, 0) !important;
+ }
+
+.dropdown-menu {
+    background-color: transparent !important;
+}
+
+.dropdown-item:hover {
+    background-color: rgba(255, 255, 255, 0.288) !important;
+}
