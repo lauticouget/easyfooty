@@ -1,4 +1,4 @@
-<nav class="custom-navbar navbar navbar-expand-md navbar-light navbar-laravel fixed-top">
+<nav class="custom-navbar navbar navbar-expand-md navbar-dark navbar-laravel fixed-top">
     <div class="container">
 
 {{-- LARAVEL HOMEButton --}}
@@ -39,7 +39,7 @@
 
             @if (Auth::user()->role == 'player')
             <li class="nav-item ">
-                <a  class="nav-link" href="{{ route('match.index') }}" role="button"  aria-haspopup="true" aria-expanded="false" v-pre>
+                <a  class="nav-link navbar-brand" href="{{ route('match.index') }}" role="button"  aria-haspopup="true" aria-expanded="false" v-pre>
                     Matches <span class="caret"></span>
                 </a>
             </li>
@@ -47,7 +47,7 @@
 
             @if (Auth::user()->role == 'player')
             <li class="nav-item ">
-                <a  class="nav-link" href="{{ route('team.index') }}" role="button"  aria-haspopup="true" aria-expanded="false" v-pre>
+                <a  class="nav-link navbar-brand" href="{{ route('team.index') }}" role="button"  aria-haspopup="true" aria-expanded="false" v-pre>
                     Teams <span class="caret"></span>
                 </a>
             </li>
@@ -56,7 +56,7 @@
 {{-- LOGOUT DROPDOWN --}}
                 <li class="nav-item dropdown">
 
-                    <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre> {{ Auth::user()->first_name }} <span class="caret"></span></a>
+                    <a id="navbarDropdown" class="nav-link navbar-brand dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre> {{ Auth::user()->first_name }} <span class="caret"></span></a>
 
                     <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
 
